@@ -44,8 +44,11 @@ namespace NidoKota
 
         inline void Unsubscribe(FuncType& func) override
         {
-            auto rm = remove_if(begin(_funcRefs), end(_funcRefs), [&func](reference_wrapper<FuncType> f) { return &func == &f.get(); });
-            _funcRefs.erase(rm, cend(_funcRefs));
+            auto rm1 = remove_if(begin(_funcs), end(_funcs), [&func](FuncType& f) { return &func == &f; });
+            _funcs.erase(rm1, cend(_funcs));
+
+            auto rm2 = remove_if(begin(_funcRefs), end(_funcRefs), [&func](reference_wrapper<FuncType> f) { return &func == &f.get(); });
+            _funcRefs.erase(rm2, cend(_funcRefs));
         }
 
         inline vector<TOutput> operator()(TInput inputs) const
@@ -84,8 +87,11 @@ namespace NidoKota
 
         inline void Unsubscribe(FuncType& func) override
         {
-            auto rm = remove_if(begin(_funcRefs), end(_funcRefs), [&func](reference_wrapper<FuncType> f) { return &func == &f.get(); });
-            _funcRefs.erase(rm, cend(_funcRefs));
+            auto rm1 = remove_if(begin(_funcs), end(_funcs), [&func](FuncType& f) { return &func == &f; });
+            _funcs.erase(rm1, cend(_funcs));
+
+            auto rm2 = remove_if(begin(_funcRefs), end(_funcRefs), [&func](reference_wrapper<FuncType> f) { return &func == &f.get(); });
+            _funcRefs.erase(rm2, cend(_funcRefs));
         }
 
         inline void operator()(TInput inputs) const
@@ -122,8 +128,11 @@ namespace NidoKota
 
         inline void Unsubscribe(FuncType& func) override
         {
-            auto rm = remove_if(begin(_funcRefs), end(_funcRefs), [&func](reference_wrapper<FuncType> f) { return &func == &f.get(); });
-            _funcRefs.erase(rm, cend(_funcRefs));
+            auto rm1 = remove_if(begin(_funcs), end(_funcs), [&func](FuncType& f) { return &func == &f; });
+            _funcs.erase(rm1, cend(_funcs));
+
+            auto rm2 = remove_if(begin(_funcRefs), end(_funcRefs), [&func](reference_wrapper<FuncType> f) { return &func == &f.get(); });
+            _funcRefs.erase(rm2, cend(_funcRefs));
         }
 
         inline vector<TOutput> operator()() const
@@ -162,8 +171,11 @@ namespace NidoKota
 
         inline void Unsubscribe(FuncType& func) override
         {
-            auto rm = remove_if(begin(_funcRefs), end(_funcRefs), [&func](reference_wrapper<FuncType> f) { return &func == &f.get(); });
-            _funcRefs.erase(rm, cend(_funcRefs));
+            auto rm1 = remove_if(begin(_funcs), end(_funcs), [&func](FuncType& f) { return &func == &f; });
+            _funcs.erase(rm1, cend(_funcs));
+
+            auto rm2 = remove_if(begin(_funcRefs), end(_funcRefs), [&func](reference_wrapper<FuncType> f) { return &func == &f.get(); });
+            _funcRefs.erase(rm2, cend(_funcRefs));
         }
 
         inline void operator()() const
